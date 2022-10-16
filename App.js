@@ -1,16 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import {
-  Text,
-  LogBox,
-  View,
-  StatusBar,
-  Image,
-  ActivityIndicator,
-} from "react-native";
+import React, { useContext, useEffect } from "react";
+import { LogBox, View, StatusBar, ActivityIndicator } from "react-native";
 import { useAssets } from "expo-asset";
-//import { onAuthStateChanged } from "firebase/auth";
-//import { auth } from "./firebase";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import LottieView from "lottie-react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -155,13 +147,12 @@ function Main() {
   const [assets] = useAssets(
     require("./assets/chatbg.jpg"),
     require("./assets/user-icon.png"),
-    require("./assets/icon-square.png"),
-    require("./assets/welcome-img.png")
+    require("./assets/icon-square.png")
   );
   if (!assets) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator />
+        <ActivityIndicator size="large" />
       </View>
     );
   }
@@ -194,32 +185,21 @@ const Splash = ({ navigation }) => {
       style={{
         alignItems: "center",
         justifyContent: "center",
-        fontSize: 18,
-        fontWeight: "bold",
-        color: "#fff",
         flex: 1,
       }}
     >
       <StatusBar style="light" backgroundColor="#710000" />
-      <Image
-        source={require("./assets/welcome-img.png")}
+      <LottieView
+        source={require("./assets/chats.json")}
+        autoPlay
+        loop
         style={{
-          width: 200,
-          height: 200,
-          borderRadius: 200,
-          marginBottom: 40,
+          width: "50%",
+          height: "50%",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       />
-      <Text
-        style={{
-          textAlign: "center",
-          fontSize: 30,
-          fontWeight: "bold",
-          color: "#E64848",
-        }}
-      >
-        Welcome Here!
-      </Text>
     </View>
   );
 };

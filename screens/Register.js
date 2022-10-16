@@ -1,14 +1,8 @@
 import React, { useContext, useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  Button,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import Context from "../context/Context";
 import { SignUp, SignIn } from "../firebase";
+import LottieView from "lottie-react-native";
 
 function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -41,9 +35,16 @@ function RegisterScreen({ navigation }) {
       >
         Welcome To BitChat
       </Text>
-      <Image
-        source={require("../assets/welcome-img.png")}
-        style={{ width: 180, height: 180, resizeMode: "cover" }}
+      <LottieView
+        source={require("../assets/chats.json")}
+        autoPlay
+        loop
+        style={{
+          width: 180,
+          height: 180,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       />
       <View style={{ marginTop: 20 }}>
         <TextInput
