@@ -13,16 +13,16 @@ export default function Contacts() {
   const image = route.params && route.params.image;
 
   return (
-    //<View>
-    // <Text>{JSON.stringify(contacts)}</Text>
-    // </View>
-    //
-    <FlatList
-      style={{ flex: 1, padding: 10 }}
-      data={contacts}
-      keyExtractor={(_, i) => i}
-      renderItem={({ item }) => <ContactPreview contact={item} image={image} />}
-    />
+    <View style={{ backgroundColor: "black", flex: 1 }}>
+      <FlatList
+        style={{ flex: 1, padding: 10 }}
+        data={contacts}
+        keyExtractor={(_, i) => i}
+        renderItem={({ item }) => (
+          <ContactPreview contact={item} image={image} />
+        )}
+      />
+    </View>
   );
 }
 
